@@ -1,5 +1,6 @@
 ## Install packages
-apt install -y zsh zsh-antigen sshpass htop figlet curl
+apt install -y zsh sshpass htop figlet curl
+curl -L git.io/antigen > ~/.antigen.zsh
 
 ## Make ZSH as default Shell
 chsh -s $(which zsh)
