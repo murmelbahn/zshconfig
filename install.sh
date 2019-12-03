@@ -5,7 +5,7 @@ packages=( "zsh" "sshpass" "htop" "figlet" "tmux" "curl" )
 configfiles=( ".zshrc" ".antigen.zsh" ".p10k.zsh" ".tmux.conf" ".config/htop/htoprc")
 motdfiles=( "/etc/update-motd.d/00-header" "/etc/update-motd.d/10-uname" "/etc/update-motd.d/10-sysinfo" "/etc/update-motd.d/90-footer" )
 cd ~
-
+mkdir .config/htop
 ## Install packages
 for i in "${packages[@]}"
 do
