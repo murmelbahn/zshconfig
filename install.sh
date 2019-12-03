@@ -15,8 +15,32 @@ rm ~/.antigen.zsh
 if test -f "~/.p10k.zsh"; then
 rm ~/.p10k.zsh
     fi
-
-
 ## Symlink for new config
 cd ~
 ln -s ~/.zshconfig/zshrc .zshrc 
+## Emtpy Motd
+if test -f "/etc/update-motd.d/10-uname"; then
+rm /etc/update-motd.d/10-uname
+    fi
+if test -f "/etc/update-motd.d/00-header"; then
+rm /etc/update-motd.d/00-header
+    fi
+if test -f "/etc/update-motd.d/10-sysinfo"; then
+rm /etc/update-motd.d/10-sysinfo
+    fi
+if test -f "/etc/update-motd.d/90-footer"; then
+rm /etc/update-motd.d/90.footer
+    fi
+## Copy Files, fix permissions
+cp ~/.zshconfig/motd/* /etc/update-motd.d/
+chmod +x /etc/update-motd.d/*
+echo > /etc/motd
+## htop config
+if test -f "~/.config/htop/htoprc"; then
+rm ~/.config/htop/htoprc
+    fi
+cd ~
+ln -s ~/.zshconfig/htoprc .config/htop/htoprc
+
+
+
