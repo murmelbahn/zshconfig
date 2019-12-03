@@ -1,7 +1,6 @@
 ## Install packages
 
 apt install -y zsh sshpass htop figlet tmux curl
-curl -L git.io/antigen > ~/.antigen.zsh
 cd ~
 
 ## Make ZSH as default Shell
@@ -17,6 +16,8 @@ rm ~/.antigen.zsh
 if test -f ~/.p10k.zsh; then
 rm ~/.p10k.zsh
     fi
+
+curl -L git.io/antigen > ~/.antigen.zsh
 
 ## Symlink for new config
 ln -s ~/.zshconfig/zshrc .zshrc 
