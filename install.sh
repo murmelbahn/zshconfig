@@ -1,6 +1,16 @@
 ## Install packages
+packages=( "zsh" "sshpass" "htop" "figlet" "tmux" "curl" )
+for i in "${packages[@]}"
+   do
+     dpkg -s $i &> /dev/null
+      if [ $? -eq 0 ]; then
+    echo "$i is installed - skipping"
+    else
+        echo "$i is missing. Installing now."
+        apt install $i
+        fi
+done
 
-apt install -y zsh sshpass htop figlet tmux curl
 cd ~
 
 ## Make ZSH as default Shell
