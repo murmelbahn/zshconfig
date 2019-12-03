@@ -16,7 +16,7 @@ if [ $? -eq 0 ]; then
 echo $i is installed - skipping.
     else
         $i is missing. Installing now.
-        apt install $i
+        apt install -y $i
         fi
  done
 
