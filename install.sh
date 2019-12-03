@@ -1,64 +1,58 @@
-## Install packages
+#!/bin/bash
+
+## Define Arrays
 packages=( "zsh" "sshpass" "htop" "figlet" "tmux" "curl" )
+configfiles=( ".zshrc" ".antigen.zsh" ".p10k.zsh" ".tmux.conf" ".config/htop/htoprc")
+motdfiles=( "/etc/update-motd.d/00-header" "/etc/update-motd.d/10-uname" "/etc/update-motd.d/10-sysinfo" "/etc/update-motd.d/90-footer" )
+cd ~
+
+## Install packages
 for i in "${packages[@]}"
-   do
-     dpkg -s $i &> /dev/null
-      if [ $? -eq 0 ]; then
-    echo "$i is installed - skipping"
+do
+
+dpkg -s $i &> /dev/null
+
+if [ $? -eq 0 ]; then
+echo $i is installed - skipping.
     else
-        echo "$i is missing. Installing now."
+        $i is missing. Installing now.
         apt install $i
         fi
+ done
+
+## Remove Config Files
+
+for j in "${configfiles[@]}"
+do
+  rm $j
+done 
+
+## Remove Motd Files
+
+for k in "${motdfiles[@]}"
+do
+  if test -f $k; then
+  rm $k
+  fi
 done
 
-cd ~
+## Install Antigen
+curl -L git.io/antigen > .antigen.zsh
+
+
+## Create Symlinks
+ln -s ~/.zshconfig/zshrc .zshrc
+ln -s ~/.zshconfig/tmux .tmux.conf
+ln -s ~/.zshconfig/htoprc .config/htop/htoprc
+ln -s ~/.zshconfig/p10k.zsh .p10k.zsh
 
 ## Make ZSH as default Shell
 chsh -s $(which zsh)
 
-## Remove existing config files
-if test -f ~/.zshrc; then
-rm .zshrc
-    fi
-if test -f ~/.antigen.zsh; then
-rm ~/.antigen.zsh
-    fi
-if test -f ~/.p10k.zsh; then
-rm ~/.p10k.zsh
-    fi
-if test -f ~/.tmux.conf; then
-rm tmux.conf
-   fi
-   
-curl -L git.io/antigen > ~/.antigen.zsh
 
-## Symlink for new config
-ln -s ~/.zshconfig/zshrc .zshrc 
-ln -s ~/.zshconfig/tmux .tmux.conf
-## Emtpy Motd
-if test -f /etc/update-motd.d/10-uname; then
-rm /etc/update-motd.d/10-uname
-    fi
-if test -f /etc/update-motd.d/00-header; then
-rm /etc/update-motd.d/00-header
-    fi
-if test -f /etc/update-motd.d/10-sysinfo; then
-rm /etc/update-motd.d/10-sysinfo
-    fi
-if test -f /etc/update-motd.d/90-footer; then
-rm /etc/update-motd.d/90-footer
-    fi
 
 ## Copy Files, fix permissions
 cp ~/.zshconfig/motd/* /etc/update-motd.d/
 chmod +x /etc/update-motd.d/*
 echo > /etc/motd
-
-## htop config
-if test -f ~/.config/htop/htoprc; then
-rm ~/.config/htop/htoprc
-    fi
-ln -s ~/.zshconfig/htoprc .config/htop/htoprc
-
-
 
