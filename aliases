@@ -1,0 +1,14 @@
+## Aliases
+alias ls='ls --color=auto'
+alias ll='ls -la'
+alias ..='cd ..'
+alias grep='grep --color=auto'
+alias ports='netstat -an | grep LISTEN'
+alias df='df -h'
+alias cdh='cd $HOME'
+alias cdo='cd /opt'
+alias zrc='nano $HOME/.zshrc'
+alias c='clear'
+alias h='history'
+alias top='htop'
+
