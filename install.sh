@@ -8,13 +8,13 @@ cd ~
 chsh -s $(which zsh)
 
 ## Remove existing config files
-if test -f "~/.zshrc"; then
+if test -f ~/.zshrc; then
 rm .zshrc
     fi
-if test -f "~/.antigen.zsh"; then
+if test -f ~/.antigen.zsh; then
 rm ~/.antigen.zsh
     fi
-if test -f "~/.p10k.zsh"; then
+if test -f ~/.p10k.zsh; then
 rm ~/.p10k.zsh
     fi
 
@@ -22,16 +22,16 @@ rm ~/.p10k.zsh
 ln -s ~/.zshconfig/zshrc .zshrc 
 
 ## Emtpy Motd
-if test -f "/etc/update-motd.d/10-uname"; then
+if test -f /etc/update-motd.d/10-uname; then
 rm /etc/update-motd.d/10-uname
     fi
-if test -f "/etc/update-motd.d/00-header"; then
+if test -f /etc/update-motd.d/00-header; then
 rm /etc/update-motd.d/00-header
     fi
-if test -f "/etc/update-motd.d/10-sysinfo"; then
+if test -f /etc/update-motd.d/10-sysinfo; then
 rm /etc/update-motd.d/10-sysinfo
     fi
-if test -f "/etc/update-motd.d/90-footer"; then
+if test -f /etc/update-motd.d/90-footer; then
 rm /etc/update-motd.d/90-footer
     fi
 
@@ -41,7 +41,7 @@ chmod +x /etc/update-motd.d/*
 echo > /etc/motd
 
 ## htop config
-if test -f "~/.config/htop/htoprc"; then
+if test -f ~/.config/htop/htoprc; then
 rm ~/.config/htop/htoprc
     fi
 ln -s ~/.zshconfig/htoprc .config/htop/htoprc
