@@ -1,5 +1,5 @@
 ## Install packages
-apt-get install -y zsh zsh-antigen sshpass htop finglet curl git
+apt install -y zsh zsh-antigen sshpass htop finglet curl
 
 
 ## Set ZSH as default shell
