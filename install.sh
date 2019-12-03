@@ -16,12 +16,15 @@ rm ~/.antigen.zsh
 if test -f ~/.p10k.zsh; then
 rm ~/.p10k.zsh
     fi
-
+if test -f ~/.tmux.conf; then
+rm tmux.conf
+   fi
+   
 curl -L git.io/antigen > ~/.antigen.zsh
 
 ## Symlink for new config
 ln -s ~/.zshconfig/zshrc .zshrc 
-
+ln -s ~/.zshconfig/tmux .tmux.conf
 ## Emtpy Motd
 if test -f /etc/update-motd.d/10-uname; then
 rm /etc/update-motd.d/10-uname
