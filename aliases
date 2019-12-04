@@ -1,5 +1,4 @@
 ## Aliases
-alias ls='ls --color=auto'
 alias ll='ls -la'
 alias ..='cd ..'
 alias grep='grep --color=auto'
@@ -12,3 +11,8 @@ alias c='clear'
 alias h='history'
 alias top='htop'
 
+if [ "$(uname)" = "Darwin" ]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
