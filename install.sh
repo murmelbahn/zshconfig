@@ -2,7 +2,7 @@
 
 ## Define Arrays
 packages=( "zsh" "htop" "figlet" "tmux" "curl" )
-configfiles=( ".zshrc" ".antigen.zsh" ".p10k.zsh" ".tmux.conf" ".config/htop/htoprc")
+configfiles=( ".zshrc" ".antigen.zsh" ".p10k.zsh" ".tmux.conf" ".config/htop/htoprc" "/etc/nanorc")
 motdfiles=( "/etc/update-motd.d/00-header" "/etc/update-motd.d/10-uname" "/etc/update-motd.d/10-sysinfo" "/etc/update-motd.d/90-footer" )
 cd ~
 mkdir .config/htop
@@ -45,6 +45,7 @@ ln -s ~/.zshconfig/zshrc .zshrc
 ln -s ~/.zshconfig/tmux .tmux.conf
 ln -s ~/.zshconfig/htoprc .config/htop/htoprc
 ln -s ~/.zshconfig/p10k.zsh .p10k.zsh
+ln -s ~/.zshconfig/nanorc /etc/nanorc
 
 ## Make ZSH as default Shell
 chsh -s $(which zsh)
