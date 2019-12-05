@@ -8,6 +8,7 @@ antigen bundle agkozak/zsh-z
 antigen theme romkatv/powerlevel10k
 antigen bundle "MichaelAquilina/zsh-you-should-use"
 antigen apply
+autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 
 ### Settings fuer History
