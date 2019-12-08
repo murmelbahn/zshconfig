@@ -2,7 +2,7 @@
 
 ## Define Arrays
 packages=( "zsh" "htop" "figlet" "tmux" "curl" )
-configfiles=( ".zshrc" ".antigen.zsh" ".p10k.zsh" ".tmux.conf" ".config/htop/htoprc" )
+configfiles=( ".zshrc" ".antigen.zsh" ".p10k.zsh" ".tmux.conf" ".config/htop/htoprc" "/usr/share/nano/yaml.nanorc" )
 configfileslinux=( "/etc/nanorc" )
 motdfiles=( "/etc/update-motd.d/00-header" "/etc/update-motd.d/10-uname" "/etc/update-motd.d/10-sysinfo" "/etc/update-motd.d/90-footer" )
 
@@ -67,6 +67,7 @@ curl -L git.io/antigen > .antigen.zsh
 
 ## Create Symlinks
 ln -s ~/.zshconfig/zshrc .zshrc
+ln -s ~/.zshconfig/yaml.nanorc /usr/share/nano/yaml.nanorc
 ln -s ~/.zshconfig/tmux .tmux.conf
 ln -s ~/.zshconfig/htoprc .config/htop/htoprc
 ln -s ~/.zshconfig/p10k.zsh .p10k.zsh
